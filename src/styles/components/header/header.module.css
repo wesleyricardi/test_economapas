@@ -1,0 +1,7 @@
+.main {
+  position: fixed;
+  width: 100vw;
+  background-color: var(--color-silver);
+  padding: 30px 10px;
+  text-align: center;
+}

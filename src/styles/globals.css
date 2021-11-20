@@ -1,0 +1,95 @@
+@import "config/globals.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+body,
+textarea,
+button,
+input {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+textarea,
+input {
+  background-color: var(--color-light);
+  border: none;
+  color: var(--color-dark);
+  padding: 10px 15px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+  padding: 10px 25px;
+  background-color: var(--main-color);
+  color: var(--color-light);
+  border: none;
+  border-radius: 0;
+  transition: all 300ms ease;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  color: var(--color-dark);
+}
+
+p {
+  text-align: justify;
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+  margin: 10px 0;
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+  font-weight: 300;
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+  font-weight: 400;
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+  font-weight: 300;
+  line-height: 36px;
+}
+
+.arrow {
+  position: absolute;
+  top: calc(50% - 35px);
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 1.25em;
+}

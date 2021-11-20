@@ -1,0 +1,9 @@
+.main {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  padding: 15px 5px;
+  text-align: center;
+}
