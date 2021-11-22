@@ -1,0 +1,17 @@
+.bt_createGroups {
+  border: 6px dashed rgba(0, 0, 0, 0.5);
+  padding: 35px 10px;
+  text-align: center;
+  width: 50%;
+  max-width: 600px;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  font-weight: bold;
+  transition: ease 300ms;
+}
+
+.bt_createGroups:hover {
+  cursor: pointer;
+  border: 6px dashed rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 1);
+}

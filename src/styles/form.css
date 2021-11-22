@@ -1,8 +1,10 @@
 form > div {
   margin: 5px 0;
+  position: relative;
 }
 
 form > div > label {
+  position: absolute;
   display: block;
   transform: translateY(-30px);
   color: var(--color-dark);
@@ -20,7 +22,8 @@ form > div > input {
   width: 100%;
 }
 
-form > div > input:valid {
+form > div > input:valid,
+form > select:valid {
   border-bottom: green 3px solid;
 }
 

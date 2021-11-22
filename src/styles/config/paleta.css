@@ -1,11 +1,11 @@
 :root {
   --main-color: #db9038;
-  --secundary-color: #c5f6f9;
+  --secundary-color: #c3f6f9;
   --terceary-color: #ff7272;
 
   --color-light: #f2f2f2;
   --color-silver: #e2e2e2;
   --color-dark: #0d0d0d;
 
-  --light: var(--color-light) 7e;
+  --transparency-50: 7e;
 }

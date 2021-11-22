@@ -27,7 +27,7 @@ input {
 
 textarea,
 input {
-  background-color: var(--color-light);
+  background-color: transparent;
   border: none;
   color: var(--color-dark);
   padding: 10px 15px;
@@ -57,6 +57,16 @@ input[type="submit"] {
 button:hover,
 input[type="submit"]:hover {
   color: var(--color-dark);
+}
+
+select {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: transparent;
+  border: none;
+  border-bottom: #0000007d 2px solid;
+  margin: 10px 0;
 }
 
 p {
