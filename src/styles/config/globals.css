@@ -2,17 +2,16 @@
   --font-family: "Roboto", sans-serif;
   --font-size: 16px;
   --h1-font-size: 72px;
-  --h2-font-size: 64px;
+  --h2-font-size: 48px;
   --h3-font-size: 36px;
   --h4-font-size: var(--font-size);
-  --container-size: clamp(100px, 100%, 870px);
 }
 
 @media only screen and (max-width: 700px) {
   :root {
     --font-size: 15.5px;
     --h1-font-size: 43px;
-    --h2-font-size: 43px;
+    --h2-font-size: 35px;
     --h3-font-size: 30px;
   }
 }
@@ -21,7 +20,7 @@
   :root {
     --font-size: 15px;
     --h1-font-size: 38px;
-    --h2-font-size: 38px;
+    --h2-font-size: 32px;
     --h3-font-size: 28px;
   }
 }
@@ -30,7 +29,7 @@
   :root {
     --font-size: 14.5px;
     --h1-font-size: 33px;
-    --h2-font-size: 33px;
+    --h2-font-size: 30px;
     --h3-font-size: 26px;
   }
 }
@@ -39,7 +38,7 @@
   :root {
     --font-size: 14px;
     --h1-font-size: 25px;
-    --h2-font-size: 25px;
+    --h2-font-size: 21px;
     --h3-font-size: 18px;
   }
 }
@@ -47,7 +46,7 @@
 @media only screen and (max-width: 340px) {
   :root {
     --h1-font-size: 23px;
-    --h2-font-size: 23px;
+    --h2-font-size: 20px;
     --h3-font-size: 16px;
   }
 }

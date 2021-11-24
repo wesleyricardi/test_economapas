@@ -1,3 +1,7 @@
+.main {
+  margin-bottom: 50px;
+}
+
 .bt_createGroups {
   border: 6px dashed rgba(0, 0, 0, 0.5);
   padding: 35px 10px;

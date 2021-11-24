@@ -80,7 +80,12 @@ h1 {
 
 h2 {
   font-size: var(--h2-font-size);
+  font-variant: small-caps;
   font-weight: 300;
+}
+
+h2::first-letter {
+  font-size: var(--h1-font-size);
 }
 
 h3 {
@@ -90,8 +95,7 @@ h3 {
 
 h4 {
   font-size: var(--h4-font-size);
-  font-weight: 300;
-  line-height: 36px;
+  font-weight: 600;
 }
 
 .arrow {

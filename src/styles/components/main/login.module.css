@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - var(--h1-font-size) - 100px * 2);
 }
 
 .main > div {
@@ -13,6 +13,14 @@
   padding: 30px 20px;
 }
 
+.main > div > h2 {
+  text-align: center;
+}
+
+.main > div > h4 {
+  text-align: center;
+}
+
 .main > div > form {
   margin-top: 30px;
 }
@@ -20,8 +28,4 @@
 .main button {
   display: block;
   margin: 50px auto 0;
-}
-
-.main h2 {
-  text-align: center;
 }

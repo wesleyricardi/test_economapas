@@ -17,7 +17,12 @@
   padding: 30px 20px;
 }
 
+.main > div > h2 {
+  text-align: center;
+}
+
 .main > div > h4 {
+  margin-bottom: 30px;
   text-align: center;
 }
 

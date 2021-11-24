@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 
 type Props = {
   changeState_bt_createGroups: (bool: boolean) => void;
+  updateGroup: Group;
 };
 
 type Cities = {
@@ -38,20 +39,38 @@ type dataForm = {
   city_5?: string;
 };
 
-export default function CreateGroups({ changeState_bt_createGroups }: Props) {
+export default function UpdateGroups({
+  changeState_bt_createGroups,
+  updateGroup,
+}: Props) {
+  const [grupoName, setgrupoName] = useState<string>(updateGroup.name);
   const [selectCities, setSelectCities] = useState<JSX.Element[]>();
   const [cities, setCities] = useState<[Cities] | null>(null);
   const { register, handleSubmit } = useForm();
 
-  function SelectCity({ name, cities }: { name: string; cities: [Cities] }) {
+  function SelectCity({
+    name,
+    cities,
+    actual,
+  }: {
+    name: string;
+    cities: [Cities];
+    actual?: string;
+  }) {
     return (
       <select {...register(name)} placeholder=" " required name={name}>
         <option value="">Selecione um cidade</option>
-        {cities?.map((city, index) => (
-          <option key={"option_" + index} value={city.id}>
-            {city.name + "-" + city.uf.name}
-          </option>
-        ))}
+        {cities?.map((city, index) =>
+          city.name === actual ? (
+            <option selected key={"option_" + index} value={city.id}>
+              {city.name + "-" + city.uf.name}
+            </option>
+          ) : (
+            <option key={"option_" + index} value={city.id}>
+              {city.name + "-" + city.uf.name}
+            </option>
+          )
+        )}
       </select>
     );
   }
@@ -61,10 +80,14 @@ export default function CreateGroups({ changeState_bt_createGroups }: Props) {
       const req = await fetch(app.API + "cidades");
       const res = await req.json();
       setCities(res);
-      setSelectCities([
-        <SelectCity name="city_1" cities={res} />,
-        <SelectCity name="city_2" cities={res} />,
-      ]);
+
+      const selectscities = updateGroup.cities.map((city, key) => {
+        return (
+          <SelectCity name={"city_" + key} cities={res} actual={city.name} />
+        );
+      });
+
+      setSelectCities(selectscities);
     }
 
     getCities();
@@ -81,13 +104,14 @@ export default function CreateGroups({ changeState_bt_createGroups }: Props) {
       }
     }
     const group = {
+      id: updateGroup.id,
       name: data.name,
       cities: cities,
     };
 
     try {
-      const req = await fetch(app.API + "criargrupo", {
-        method: "POST",
+      const req = await fetch(app.API + "modificargrupo", {
+        method: "PUT",
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
@@ -97,12 +121,12 @@ export default function CreateGroups({ changeState_bt_createGroups }: Props) {
       });
 
       if (req.status === 201) {
-        alert("Grupo criado com sucesso");
+        alert("Grupo modificado com sucesso");
         changeState_bt_createGroups(false);
       } else {
         const { code } = await req.json();
         if (code === 1062) alert("Já existe um grupo com esse nome");
-        else alert("Falha ao criar grupo");
+        else alert("Falha ao modificar o grupo");
       }
     } catch (error) {
       console.log(error);
@@ -114,12 +138,10 @@ export default function CreateGroups({ changeState_bt_createGroups }: Props) {
       if (selectCities.length < app.max_cities_group)
         setSelectCities([
           ...selectCities,
-          <>
-            <SelectCity
-              name={"city_" + (selectCities.length + 1)}
-              cities={cities}
-            />
-          </>,
+          <SelectCity
+            name={"city_" + (selectCities.length + 1)}
+            cities={cities}
+          />,
         ]);
   }
 
@@ -130,7 +152,7 @@ export default function CreateGroups({ changeState_bt_createGroups }: Props) {
     >
       {selectCities && (
         <div onClick={(e) => e.stopPropagation()}>
-          <h2>Criar novo grupo</h2>
+          <h2>Modificar o grupo</h2>
           <h4>inclua até {app.max_cities_group} cidades no grupo</h4>
           <form onSubmit={handleSubmit(handleCreate)}>
             <div>
@@ -141,6 +163,8 @@ export default function CreateGroups({ changeState_bt_createGroups }: Props) {
                 name="name"
                 id="input_name"
                 placeholder=" "
+                value={grupoName}
+                onChange={(e) => setgrupoName(e.target.value)}
               />
               <label htmlFor="input_name">Nome do grupo</label>
             </div>
@@ -148,7 +172,7 @@ export default function CreateGroups({ changeState_bt_createGroups }: Props) {
             {selectCities.length < app.max_cities_group && (
               <a onClick={addMoreCities}>Adicionar mais cidades</a>
             )}
-            <button>Salvar</button>
+            <button>MODIFICAR</button>
           </form>
         </div>
       )}
