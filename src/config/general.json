@@ -1,5 +1,5 @@
 {
   "name": "economaps_test",
-  "API": "http://127.0.0.1:8080/economaps_test/api/",
+  "API": "https://wesleyricardi.com/economaps_test/api/",
   "max_cities_group": 5
 }
