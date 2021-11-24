@@ -46,12 +46,12 @@ export default function Groups({ setUpdateGroup, groups, setGroups }: Props) {
 
   return (
     <div className={styles.main}>
-      {groups?.map((group) => (
-        <div>
+      {groups?.map((group, key) => (
+        <div key={key}>
           <h4>{group.name}</h4>
           <ul>
-            {group.cities.map((city) => (
-              <ol>
+            {group.cities.map((city, key) => (
+              <ol key={"ol_" + key}>
                 {city.name} - {city.uf.name}
               </ol>
             ))}

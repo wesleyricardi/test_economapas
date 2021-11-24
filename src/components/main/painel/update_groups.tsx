@@ -83,7 +83,12 @@ export default function UpdateGroups({
 
       const selectscities = updateGroup.cities.map((city, key) => {
         return (
-          <SelectCity name={"city_" + key} cities={res} actual={city.name} />
+          <SelectCity
+            name={"city_" + key}
+            key={"city_" + key}
+            cities={res}
+            actual={city.name}
+          />
         );
       });
 
@@ -139,6 +144,7 @@ export default function UpdateGroups({
         setSelectCities([
           ...selectCities,
           <SelectCity
+            key={"city_" + (selectCities.length + 1)}
             name={"city_" + (selectCities.length + 1)}
             cities={cities}
           />,

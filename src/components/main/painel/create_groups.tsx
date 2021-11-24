@@ -62,8 +62,8 @@ export default function CreateGroups({ changeState_bt_createGroups }: Props) {
       const res = await req.json();
       setCities(res);
       setSelectCities([
-        <SelectCity name="city_1" cities={res} />,
-        <SelectCity name="city_2" cities={res} />,
+        <SelectCity name="city_1" key="city_1" cities={res} />,
+        <SelectCity name="city_2" key="city_2" cities={res} />,
       ]);
     }
 
@@ -116,6 +116,7 @@ export default function CreateGroups({ changeState_bt_createGroups }: Props) {
           ...selectCities,
           <>
             <SelectCity
+              key={"city_" + (selectCities.length + 1)}
               name={"city_" + (selectCities.length + 1)}
               cities={cities}
             />
